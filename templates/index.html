@@ -1,30 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elevation World | We're Upgrading</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body
-    class="bg-gray-950 text-white flex items-center justify-center min-h-screen px-4 sm:px-6"
+{% extends 'base.html' %} {% block content %}
+<!-- Hero Section -->
+<section
+  class="relative h-screen bg-cover bg-center text-white bg-[{{url_for('static', filename='img/hero.png')}}]"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+  <!-- Hero Content -->
+  <div
+    class="relative z-10 flex flex-col justify-center h-full mx-auto px-6"
   >
-    <div class="text-center max-w-lg mx-auto py-8 sm:py-12">
-      <div class="text-5xl sm:text-6xl md:text-7xl text-yellow-400 mb-4 sm:mb-6">🚧</div>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">Exciting Upgrades in Progress</h1>
-      <p class="text-base sm:text-lg text-gray-300 mb-5 sm:mb-6">
-        We're working behind the scenes to enhance your experience. Stay tuned
-        for something incredible!
-      </p>
-      <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-        <div
-          class="h-full bg-yellow-400 rounded-full animate-pulse w-1/2"
-        ></div>
-      </div>
-      <p class="text-gray-400 mt-4 sm:mt-6 text-xs sm:text-sm">
-        Thank you for your patience. We'll be back soon!
-      </p>
-      <p class="text-gray-500 mt-3 sm:mt-4 text-xs">© 2025 Elevation World</p>
+    <h2 class="text-xl sm:text-2xl mb-2 font-medium">Welcome to</h2>
+    <h1 class="text-5xl sm:text-6xl font-bold leading-tight mb-4">
+      ELEVATION WORLD
+    </h1>
+    <p class="max-w-xl text-gray-200 mb-6">
+      A dynamic community of believers passionate about glorifying God through
+      worship, discipleship, service, and love. Join us in building lives,
+      impacting generations, and raising giants for the Kingdom.
+    </p>
+    <div class="flex gap-4">
+      <a
+        href="#"
+        class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
+        >Get connected</a
+      >
+      <a href="#" class="flex items-center gap-1 text-white hover:underline"
+        >Watch Live <span>➔</span></a
+      >
     </div>
-  </body>
-</html>
+  </div>
+</section>
+
+<section
+  class="grid grid-cols-1 md:grid-cols-2 gap-8 my-16 max-w-6xl mx-auto px-6"
+>
+  <div class="bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+    <p class="text-gray-600">
+      We strive to elevate your experience and help you reach new heights.
+    </p>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Our Vision</h2>
+    <p class="text-gray-600">
+      To be the leading platform for elevation services worldwide.
+    </p>
+  </div>
+</section>
+{% endblock %}
