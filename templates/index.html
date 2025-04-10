@@ -1,52 +1,96 @@
 {% extends 'base.html' %} {% block content %}
-<!-- Hero Section -->
-<section
-  class="relative h-screen bg-cover bg-center text-white bg-[url({{url_for('static', filename='img/hero.jpg')}})]"
->
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+<div class="">
 
-  <!-- Hero Content -->
-  <div
-    class="relative z-10 flex flex-col justify-center h-full mx-auto px-6"
-  >
+<div>
+<!-- Hero Section -->
+<div class="relative h-[90vh]">
+  <!-- Background image -->
+  <div class="absolute inset-0 bg-[url('{{url_for('static', filename='img/hero.jpg')}}')]
+       bg-cover bg-center"></div>
+  
+  <!-- Gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black"></div>
+  
+  <!-- Content -->
+    <div class="relative z-10 flex flex-col justify-center h-full max-w-6xl mx-auto px-6 text-white">
     <h2 class="text-xl sm:text-2xl mb-2 font-medium">Welcome to</h2>
-    <h1 class="text-5xl sm:text-6xl font-bold leading-tight mb-4">
-      ELEVATION WORLD
-    </h1>
+    <h1 class="text-5xl sm:text-6xl font-bold leading-tight mb-4">ELEVATION WORLD</h1>
     <p class="max-w-xl text-gray-200 mb-6">
-      A dynamic community of believers passionate about glorifying God through
-      worship, discipleship, service, and love. Join us in building lives,
-      impacting generations, and raising giants for the Kingdom.
+      A dynamic community of believers passionate about glorifying God through worship, discipleship, service, and love.
+      Join us in building lives, impacting generations, and raising giants for the Kingdom.
     </p>
     <div class="flex gap-4">
-      <a
-        href="#"
-        class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
-        >Get connected</a
-      >
-      <a href="#" class="flex items-center gap-1 text-white hover:underline"
-        >Watch Live <span>➔</span></a
-      >
+      <a href="#" class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Get connected</a>
+      <a href="#" class="flex items-center gap-1 text-white hover:underline">Watch Live <span>➔</span></a>
+    </div>
+  </div>
+</div>
+<section class="max-w-6xl mx-auto px-6 text-center py-12">
+  <h1 class="font-bold text-4xl sm:text-5xl text-white">Find the right experience for you.</h1>
+  <p class="mt-4 text-gray-100 max-w-3xl mx-auto">A dynamic community of believers passionate about glorifying God through worship, discipleship, service, and love. Join us in building lives, impacting generations, and raising giants for the Kingdom.</p>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 py-12">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Tile 1 -->
+    <div class="bg-[#1A1A1A] rounded-xl shadow-xl overflow-hidden ">
+      <div class="p-6 flex flex-col gap-4">
+        <i class="fa-solid fa-tv text-lg text-[#757575]"></i>
+        <h3 class="font-semibold text-xl text-white">Live Streams</h3>
+        <p class="mt-2 text-[#757575]">eFam is our online
+community who stream
+church from wherever they
+are.</p>
+        <a href="#" class="flex items-center gap-5">
+          <span>Find a time</span><i class="fa-solid fa-chevron-right text-sm"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Tile 2 -->
+    <div class="bg-[#1A1A1A] rounded-xl shadow-xl overflow-hidden ">
+      <div class="p-6 flex flex-col gap-4">
+        <i class="fa-solid fa-tv text-lg text-[#757575]"></i>
+        <h3 class="font-semibold text-xl text-white">Live Streams</h3>
+        <p class="mt-2 text-[#757575]">eFam is our online
+community who stream
+church from wherever they
+are.</p>
+        <a href="#" class="flex items-center gap-5">
+          <span>Find a time</span><i class="fa-solid fa-chevron-right text-sm"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Tile 3 -->
+    <div class="bg-[#1A1A1A] rounded-xl shadow-xl overflow-hidden ">
+      <div class="p-6 flex flex-col gap-4">
+        <i class="fa-solid fa-tv text-lg text-[#757575]"></i>
+        <h3 class="font-semibold text-xl text-white">Live Streams</h3>
+        <p class="mt-2 text-[#757575]">eFam is our online
+community who stream
+church from wherever they
+are.</p>
+        <a href="#" class="flex items-center gap-5">
+          <span>Find a time</span><i class="fa-solid fa-chevron-right text-sm"></i>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<section
-  class="grid grid-cols-1 md:grid-cols-2 gap-8 my-16 max-w-6xl mx-auto px-6"
->
-  <div class="bg-white p-6 rounded-lg shadow-md">
-    <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
-    <p class="text-gray-600">
-      We strive to elevate your experience and help you reach new heights.
-    </p>
-  </div>
-  <div class="bg-white p-6 rounded-lg shadow-md">
-    <h2 class="text-2xl font-bold mb-4">Our Vision</h2>
-    <p class="text-gray-600">
-      To be the leading platform for elevation services worldwide.
-    </p>
-  </div>
-  <img src="{{url_for('static', filename='img/hero.jpg')}}" alt="">
+
+<section class="bg-[#1A1A1A] text-white py-12 max-w-6xl px-6 mx-auto rounded-lg">
+  
+    <h2 class="font-bold text-3xl py-6">Prayer Seige Conference</h2>
+    <img src="{{url_for('static', filename='img/seigeimg.jpg')}}" alt="Image" class="w-full rounded-lg">
+    <div class="p-6">
+      <p class="">Be the first to welcome guests and make them feel at home. From the parking lot to greeting people at the
+door to showing our first time guests the best seats in the house – you’ll play an important role in helping
+every person feel seen, valued, and ready to experience God’s life-changing presence.</p>
+    </div>
+  
 </section>
+
+
+</div>
+
 {% endblock %}

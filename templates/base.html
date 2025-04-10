@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }} - Elevation World</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
   </head>
-  <body class="bg-black flex flex-col min-h-screen">
+  <body class="bg-black text-white flex flex-col min-h-screen">
     <div class="flex flex-col min-h-screen">
       {% include 'components/nav.html' %}
 
-      <main class="flex-1 container mx-auto px-4 py-8">
+      <main class="">
         {% block content %}{% endblock %}
       </main>
 
