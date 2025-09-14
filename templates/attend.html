@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }} - Elevation World</title>
+     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logoicon.png') }}">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+ <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  </head>
+  <body class="bg-black text-white flex flex-col min-h-screen">
+    <div class="flex flex-col min-h-screen">
+      <!-- {% include 'components/nav.html' %} -->
+
+      <main class="">
+<div class=" min-h-screen flex flex-col">
+   <div class="py-10">
+     
+   </div>
+    <div
+        class="absolute inset-0 bg-[url('{{url_for('static', filename='img/hero.jpg')}}')]
+       bg-cover bg-center"
+      ></div>
+
+      <!-- Gradient overlay -->
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/80 to-black"
+      ></div>
+
+  <div class=" flex items-center justify-center px-6 py-12 relative z-10">
+  <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
+    
+    <!-- Left Section -->
+    <div class="text-white flex flex-col justify-center">
+      <div>
+        <img src="/static/img/logo.png" alt="Logo" class="h-16 mb-6">
+      </div>
+      <h1 class="text-4xl font-bold mb-4">Join the Elevation World Family</h1>
+      <p class="text-gray-400 mb-6">
+        The Elevation World is a Christ-centered, Bible-believing family led by Head Pastor Eddie Cudjoe. 
+        Register to get connected, receive care, and take your next step in faith.
+      </p>
+      <div class="space-y-4">
+        <div>
+          <h2 class="font-semibold flex items-center">
+ Why register?
+          </h2>
+          <ul class="list-disc list-inside text-gray-400 text-sm mt-2 space-y-1">
+            <li>Get placed in a small group and receive pastoral support.</li>
+            <li>Receive updates on services, Bible studies, and special events.</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="font-semibold flex items-center"> Trust line
+          </h2>
+          <p class="text-gray-400 text-sm mt-2">
+            Your details are private and used only for ministry communication and care.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Section (Form) -->
+    <div class="bg-gray-950/70 rounded-xl p-8 shadow-lg">
+      <h2 class="text-white text-2xl font-bold mb-6">Register Here</h2>
+      
+      <form method="POST" class="space-y-4">
+        <div>
+          <label for="email" class="text-gray-300 text-sm">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email"
+                 class="w-full mt-1 px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="firstname" class="text-gray-300 text-sm">First Name</label>
+            <input type="text" id="firstname" name="firstname" required placeholder="Enter your first name"
+                   class="w-full mt-1 px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label for="lastname" class="text-gray-300 text-sm">Last Name</label>
+            <input type="text" id="lastname" name="lastname" required placeholder="Enter your last name"
+                   class="w-full mt-1 px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+
+        <div>
+          <label for="phonenumber" class="text-gray-300 text-sm">Contact</label>
+          <input type="text" id="phonenumber" name="phonenumber" placeholder="050 - 000 - 0000" required
+                 class="w-full mt-1 px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="gender" class="text-gray-300 text-sm">Gender</label>
+            <select id="gender" name="gender" required
+                    class="w-full mt-1 px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:ring-2 focus:ring-blue-500">
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div>
+            <label for="age_bracket" class="text-gray-300 text-sm">Age Bracket</label>
+            <select id="age_bracket" name="age_bracket" required
+                    class="w-full mt-1 px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:ring-2 focus:ring-blue-500">
+              <option value="">Select</option>
+              <option value="Under 18">Under 18</option>
+              <option value="18-24">18-24</option>
+              <option value="25-34">25-34</option>
+              <option value="35-44">35-44</option>
+              <option value="45-54">45-54</option>
+              <option value="55+">55+</option>
+            </select>
+          </div>
+        </div>
+
+      <div>
+  <label for="occupation" class="text-gray-300 text-sm">Occupation</label>
+  <select id="occupation" name="occupation" required
+          class="w-full mt-1 px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:ring-2 focus:ring-blue-500">
+    <option value="" disabled selected>Select your occupation</option>
+    <option value="student">Student</option>
+    <option value="worker">Worker</option>
+    <option value="other">Other</option>
+  </select>
+</div>
+
+
+  
+        <div class="flex items-center space-x-2">
+          <input type="checkbox" id="consent" name="consent" required
+                 class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-700 rounded">
+          <label for="consent" class="text-gray-400 text-sm">
+            I agree that Elevation World may contact me regarding services, care, and groups.
+          </label>
+        </div>
+
+        <button type="submit" id="submitBtn" disabled
+                class="w-full py-3 bg-gray-600 text-gray-400 font-semibold rounded-lg shadow cursor-not-allowed transition-colors duration-200">
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+     </div>
+  </main>
+
+      <!-- {% include 'components/footer.html' %} -->
+    </div>
+
+    <script>
+      // Enable submit button only when consent is given
+      document.addEventListener('DOMContentLoaded', function() {
+        const consentCheckbox = document.getElementById('consent');
+        const submitButton = document.getElementById('submitBtn');
+        const form = document.getElementById('registrationForm');
+        
+        consentCheckbox.addEventListener('change', function() {
+          if (this.checked) {
+            submitButton.disabled = false;
+            submitButton.classList.remove('bg-gray-600', 'text-gray-400', 'cursor-not-allowed');
+            submitButton.classList.add('bg-white', 'text-black', 'hover:bg-gray-200');
+          } else {
+            submitButton.disabled = true;
+            submitButton.classList.remove('bg-white', 'text-black', 'hover:bg-gray-200');
+            submitButton.classList.add('bg-gray-600', 'text-gray-400', 'cursor-not-allowed');
+          }
+        });
+        
+        // Client-side validation to ensure consent is checked before submission
+        form.addEventListener('submit', function(e) {
+          if (!consentCheckbox.checked) {
+            e.preventDefault();
+            alert('Please agree to the consent terms before submitting.');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
