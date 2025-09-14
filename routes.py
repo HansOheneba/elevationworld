@@ -36,7 +36,7 @@ def contact():
     return render_template("contact.html", title="Contact Us")
 
 
-@main_routes.route("/attend", methods=["GET", "POST"])
+@main_routes.route("/register", methods=["GET", "POST"])
 def attend():
     if request.method == "POST":
         try:
