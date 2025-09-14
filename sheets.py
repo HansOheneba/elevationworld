@@ -67,7 +67,6 @@ def append_to_sheet(range_name, values):
         return False
 
 
-# ADD THIS NEW FUNCTION FOR REGISTRATION SPECIFICALLY
 def append_registration(data):
     """Helper function specifically for registration form"""
     # Prepare the data in the right order for Google Sheets
@@ -86,3 +85,50 @@ def append_registration(data):
 
     # Append to sheet (8 columns: A to H)
     return append_to_sheet("Sheet1!A:H", values)
+
+
+# ADD THIS FUNCTION FOR EMAIL VALIDATION
+def check_email_exists(email):
+    """Check if email already exists in the Google Sheet"""
+    try:
+        service = get_sheets_service()
+        if not service:
+            return False
+
+        spreadsheet_id = os.environ.get("GOOGLE_SHEET_ID")
+        if not spreadsheet_id:
+            print("Spreadsheet ID not found in environment variables")
+            return False
+
+        # Get all emails from column B (assuming email is in column B)
+        result = (
+            service.spreadsheets()
+            .values()
+            .get(
+                spreadsheetId=spreadsheet_id,
+                range="Sheet1!B:B",  # Column B contains emails
+            )
+            .execute()
+        )
+
+        values = result.get("values", [])
+
+        # Skip header row if exists and check if email exists in any row
+        for i, row in enumerate(values):
+            # Skip empty rows and potentially header row (first row)
+            if row and row[0]:
+                # If this is not the first row or we're sure there's no header
+                if i > 0 or not any(
+                    header_word in row[0].lower() for header_word in ["email", "e-mail"]
+                ):
+                    if row[0].strip().lower() == email.strip().lower():
+                        return True
+
+        return False
+
+    except HttpError as error:
+        print(f"An error occurred while checking email: {error}")
+        return False
+    except Exception as e:
+        print(f"Unexpected error in check_email_exists: {e}")
+        return False

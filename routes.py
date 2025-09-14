@@ -1,8 +1,20 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from sheets import append_to_sheet, append_registration
-from datetime import datetime
+from sheets import append_to_sheet, append_registration, check_email_exists
+import random
 
 main_routes = Blueprint("main", __name__)
+
+
+SPIRITUAL_MESSAGES = [
+    "Registration successful — welcome to God’s family!",
+    "Form submitted — heaven rejoices with you today!",
+    "Details saved — may God guide your journey.",
+    "Registration complete — you are part of our family now.",
+    "Success — your soul has found a home here.",
+    "Submitted — blessings on your decision today!",
+    "Saved — we’ll grow and worship together.",
+    "Registration received — your journey with Elevation starts now!",
+]
 
 @main_routes.route("/")
 def index():
@@ -34,8 +46,9 @@ def attend():
                 return render_template("attend.html", title="Attend")
 
             # Get all form data
+            email = request.form.get("email")
             form_data = {
-                "email": request.form.get("email"),
+                "email": email,
                 "firstname": request.form.get("firstname"),
                 "lastname": request.form.get("lastname"),
                 "phonenumber": request.form.get("phonenumber"),
@@ -61,14 +74,23 @@ def attend():
                         "attend.html", title="Attend", form_data=form_data
                     )
 
-            # Append to Google Sheet using the new function
+            # Check if email already exists
+            if check_email_exists(email):
+                flash(
+                    "This email is already registered. If you need to update your information, please contact us for assistance.",
+                    "info",
+                )
+                return render_template(
+                    "attend.html", title="Attend", form_data=form_data
+                )
+
+            # Append to Google Sheet
             success = append_registration(form_data)
 
             if success:
-                flash(
-                    "Registration successful! Welcome to the Elevation World family!",
-                    "success",
-                )
+                # Select a random spiritual message
+                spiritual_message = random.choice(SPIRITUAL_MESSAGES)
+                flash(f"Registration successful! {spiritual_message}", "success")
                 return redirect(url_for("main.attend"))
             else:
                 flash("Error submitting registration. Please try again.", "error")
